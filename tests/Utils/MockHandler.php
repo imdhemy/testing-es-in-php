@@ -8,6 +8,15 @@ use GuzzleHttp\Ring\Future\FutureArrayInterface;
 class MockHandler extends \GuzzleHttp\Ring\Client\MockHandler
 {
     /**
+     * @const array Default mock options
+     */
+    private const DEFAULT_MOCK_OPTIONS = [
+        'status' => 200,
+        'transfer_stats' => ['total_time' => 100],
+        'effective_url' => 'localhost'
+    ];
+
+    /**
      * @var Transaction[]
      */
     protected array $transactions;
@@ -20,6 +29,32 @@ class MockHandler extends \GuzzleHttp\Ring\Client\MockHandler
     {
         parent::__construct($result);
         $this->transactions = [];
+    }
+
+    /**
+     * @param string $template
+     * @param array $overrides
+     * @param array $options
+     * @return MockHandler
+     */
+    public static function mockTemplate(string $template, array $overrides = [], array $options = []): MockHandler
+    {
+        $responseBody = json_encode(array_merge(self::getTemplate($template), $overrides));
+        $stream = fopen(sprintf('data://text/plain;base64,%s', base64_encode($responseBody)), 'r');
+
+        $options = array_merge(self::DEFAULT_MOCK_OPTIONS, $options);
+        $options['body'] = $stream;
+
+        return new MockHandler($options);
+    }
+
+    /**
+     * @param string $template
+     * @return array
+     */
+    private static function getTemplate(string $template): array
+    {
+        return require(sprintf("%s/fixtures/responses/%s.php", __DIR__, $template));
     }
 
     /**

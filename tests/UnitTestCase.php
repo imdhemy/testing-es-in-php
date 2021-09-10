@@ -10,14 +10,11 @@ use PHPUnit\Framework\TestCase as PHPUnitTestCase;
 class UnitTestCase extends PHPUnitTestCase
 {
     /**
-     * @param string $template
-     * @param array $overrides
-     * @param array $options
+     * @param MockHandler $handler
      * @return Client
      */
-    protected function mockClient(string $template, array $overrides = [], array $options = []): Client
+    protected function mockClient(MockHandler $handler): Client
     {
-        $handler = MockHandler::mockTemplate($template, $overrides, $options);
         $builder = ClientBuilder::create();
         $builder->setHandler($handler);
 

@@ -22,9 +22,9 @@ class TransactionResponse
     protected ?string $effectiveUrl;
 
     /**
-     * @var array|null
+     * @var mixed
      */
-    protected ?array $body;
+    protected $body;
 
     /**
      * @var array|null
@@ -47,7 +47,7 @@ class TransactionResponse
         $obj->status = $value['status'];
         $obj->transferStats = $value['transfer_stats'];
         $obj->effectiveUrl = $value['effective_url'];
-        $obj->body = json_decode(stream_get_contents($value['body']), true);
+        $obj->body = $value['body'];
         $obj->headers = $value['headers'];
         $obj->reason = $value['reason'];
 
@@ -83,6 +83,10 @@ class TransactionResponse
      */
     public function getBody(): ?array
     {
+        if (is_resource($this->body)) {
+            $this->body = json_decode(stream_get_contents($this->body), true);
+        }
+
         return $this->body;
     }
 

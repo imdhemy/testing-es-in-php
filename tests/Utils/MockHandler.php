@@ -17,6 +17,11 @@ class MockHandler extends \GuzzleHttp\Ring\Client\MockHandler
     ];
 
     /**
+     * @const Responses directory
+     */
+    private const RESPONSES_DIR = __DIR__ . '/../fixtures/responses';
+
+    /**
      * @var Transaction[]
      */
     protected array $transactions;
@@ -54,7 +59,7 @@ class MockHandler extends \GuzzleHttp\Ring\Client\MockHandler
      */
     private static function getTemplate(string $template): array
     {
-        return require(sprintf("%s/fixtures/responses/%s.php", __DIR__, $template));
+        return require(sprintf("%s/%s.php", self::RESPONSES_DIR, $template));
     }
 
     /**

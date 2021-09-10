@@ -31,7 +31,12 @@ class ElasticSearchEngine implements SearchEngineInterface
      */
     public function index(string $index, array $document): array
     {
-        // TODO: Implement index() method.
+        $params = [
+            'index' => $index,
+            'body' => $document,
+        ];
+
+        return $this->client->index($params);
     }
 
     /**

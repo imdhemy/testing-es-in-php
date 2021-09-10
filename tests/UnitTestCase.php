@@ -20,4 +20,13 @@ class UnitTestCase extends PHPUnitTestCase
 
         return $builder->build();
     }
+
+    /**
+     * @param string $template
+     * @return array
+     */
+    protected function getTemplate(string $template): array
+    {
+        return MockHandler::getTemplate($template);
+    }
 }

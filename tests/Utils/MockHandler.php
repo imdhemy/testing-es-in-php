@@ -57,7 +57,7 @@ class MockHandler extends \GuzzleHttp\Ring\Client\MockHandler
      * @param string $template
      * @return array
      */
-    private static function getTemplate(string $template): array
+    public static function getTemplate(string $template): array
     {
         return require(sprintf("%s/%s.php", self::RESPONSES_DIR, $template));
     }

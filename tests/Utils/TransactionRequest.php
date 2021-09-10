@@ -2,8 +2,6 @@
 
 namespace ACME\Tests\Utils;
 
-use JetBrains\PhpStorm\Pure;
-
 class TransactionRequest
 {
     /**
@@ -40,14 +38,13 @@ class TransactionRequest
      * @param array $attributes
      * @return static
      */
-    #[Pure] public static function fromArray(array $attributes): self
+    public static function fromArray(array $attributes): self
     {
         $obj = new self();
-
         $obj->method = $attributes['http_method'];
         $obj->scheme = $attributes['scheme'];
         $obj->uri = $attributes['uri'];
-        $obj->body = $attributes['body'];
+        $obj->body = json_decode($attributes['body'], true);
         $obj->headers = $attributes['headers'];
         $obj->client = $attributes['client'];
 

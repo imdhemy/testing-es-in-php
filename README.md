@@ -7,7 +7,7 @@ This repository was created as a code reference for my blog post.
 - PHP8.0 or later on your host machine.
 - Docker
 
-If you are not using PHP8.0, you can checkout to 7.1 branch.
+If you are not using PHP8.0, you can checkout to 7.3 branch.
 
 ## How to use
 

@@ -7,32 +7,32 @@ class TransactionRequest
     /**
      * @var string
      */
-    protected string $method;
+    protected $method;
 
     /**
      * @var string
      */
-    protected string $scheme;
+    protected $scheme;
 
     /**
      * @var string
      */
-    protected string $uri;
+    protected $uri;
 
     /**
      * @var array|null
      */
-    protected ?array $body;
+    protected $body;
 
     /**
      * @var array
      */
-    protected array $headers;
+    protected $headers;
 
     /**
      * @var array
      */
-    protected array $client;
+    protected $client;
 
     /**
      * @param array $attributes

@@ -7,12 +7,12 @@ class Transaction
     /**
      * @var TransactionRequest
      */
-    protected TransactionRequest $request;
+    protected $request;
 
     /**
      * @var TransactionResponse
      */
-    protected TransactionResponse $response;
+    protected $response;
 
     /**
      * Transaction constructor.

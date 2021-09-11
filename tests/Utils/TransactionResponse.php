@@ -9,17 +9,17 @@ class TransactionResponse
     /**
      * @var int|null
      */
-    protected ?int $status;
+    protected $status;
 
     /**
      * @var array|null
      */
-    protected ?array $transferStats;
+    protected $transferStats;
 
     /**
      * @var string|null
      */
-    protected ?string $effectiveUrl;
+    protected $effectiveUrl;
 
     /**
      * @var mixed
@@ -29,12 +29,12 @@ class TransactionResponse
     /**
      * @var array|null
      */
-    protected ?array $headers;
+    protected $headers;
 
     /**
      * @var string|null
      */
-    protected ?string $reason;
+    protected $reason;
 
     /**
      * @param CompletedFutureArray $value

@@ -12,7 +12,7 @@ class ElasticSearchEngine implements SearchEngineInterface
     /**
      * @var Client
      */
-    private Client $client;
+    private $client;
 
     /**
      * ElasticSearchEngine Constructor

@@ -24,7 +24,7 @@ class MockHandler extends \GuzzleHttp\Ring\Client\MockHandler
     /**
      * @var Transaction[]
      */
-    protected array $transactions;
+    protected $transactions;
 
     /**
      * @inheritDoc
@@ -67,7 +67,7 @@ class MockHandler extends \GuzzleHttp\Ring\Client\MockHandler
      * @param array $request
      * @return callable|CompletedFutureArray|FutureArrayInterface
      */
-    public function __invoke(array $request): callable|FutureArrayInterface|CompletedFutureArray
+    public function __invoke(array $request)
     {
         $response = parent::__invoke($request);
 

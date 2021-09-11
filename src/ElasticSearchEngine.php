@@ -49,4 +49,12 @@ class ElasticSearchEngine implements SearchEngineInterface
     {
         // TODO: Implement search() method.
     }
+
+    /**
+     * @return array
+     */
+    public function info(): array
+    {
+        return $this->client->info();
+    }
 }

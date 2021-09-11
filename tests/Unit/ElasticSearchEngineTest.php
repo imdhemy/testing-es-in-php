@@ -38,5 +38,7 @@ class ElasticSearchEngineTest extends UnitTestCase
      */
     public function test_it_can_search_by_keyword()
     {
+//        @TODO Exercise:1 Add unit test
+        $this->assertTrue(true);
     }
 }

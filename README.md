@@ -1,6 +1,6 @@
 # How to test Elasticsearch in PHP
 
-This repository was created as a code reference for my blog post.
+This repository was created as a code reference for my [blog post][1].
 
 ## Requirements
 
@@ -37,3 +37,5 @@ You can run tests from composer
 ```
 composer test
 ```
+
+[1]: https://imdhemy.com/blog/php/how-to-test-elasticsearch-in-php-apps.html

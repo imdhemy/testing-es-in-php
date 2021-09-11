@@ -4,7 +4,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/php:7.1-node-browsers
+      - image: circleci/php:7.3-node-browsers
       - image: docker.elastic.co/elasticsearch/elasticsearch:7.14.0
         environment:
           - transport.host: localhost
